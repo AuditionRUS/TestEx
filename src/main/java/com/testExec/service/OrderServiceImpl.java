@@ -19,8 +19,17 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void save(Order order) {
-        orderDao.save(order);
+    public void save(Order order){
+        if(order.getClient().length() < 2){
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else{
+            orderDao.save(order);
+        }
+
     }
 
     @Override

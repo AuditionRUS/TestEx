@@ -4,9 +4,11 @@ import com.testExec.Entity.Order;
 import com.testExec.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class OrderDaoImpl implements OrderDao {
 //Имя таблицы Order - недопустимо, потому таблица называется Orders
     public final JdbcTemplate jdbcTemplate;

@@ -44,7 +44,11 @@ public class OrderController {
 
     @PostMapping("/addOrder")
     public String addOrder(@ModelAttribute("order") Order order){
-        orderService.save(order);
+        try {
+            orderService.save(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "redirect:/orders";
     }
 

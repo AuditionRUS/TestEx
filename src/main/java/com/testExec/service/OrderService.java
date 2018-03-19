@@ -8,7 +8,7 @@ public interface OrderService {
 
     List<Order> findAll();
 
-    void save (Order order);
+    void save (Order order) throws Exception;
 
     Order getById(int id);
 

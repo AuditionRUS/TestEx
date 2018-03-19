@@ -1,10 +1,7 @@
 package com.testExec.config;
 
-import com.testExec.dao.OrderDao;
-import com.testExec.dao.OrderDaoImpl;
-import com.testExec.service.OrderService;
-import com.testExec.service.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -12,6 +9,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan(basePackages = {"com.testExec.service", "com.testExec.dao"})
 public class SpringConfig {
 
     @Bean
@@ -29,13 +27,4 @@ public class SpringConfig {
         return dataSource;
     }
 
-    @Bean
-    public OrderDao getOrderDao(){
-        return new OrderDaoImpl(getJdbcTemplate());
-    }
-
-    @Bean
-    public OrderService getOrderService(){
-        return new OrderServiceImpl();
-    }
 }
